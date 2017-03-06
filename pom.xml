@@ -15,14 +15,14 @@
         <servlet.version>3.0.1</servlet.version>
         <junit.version>4.12</junit.version>
         <log4j2.version>2.7</log4j2.version>
-        <spring.version>4.3.6.RELEASE</spring.version>
-        <!--<spring-data-jpa.version></spring-data-jpa.version>-->
-        <!--<hibernate.version></hibernate.version>-->
-        <!--<hibernate-validator.version></hibernate-validator.version>-->
-        <!--<mybatis.version></mybatis.version>-->
-        <!--<mybatis-spring.version></mybatis-spring.version>-->
+        <spring.version>4.3.7.RELEASE</spring.version>
+        <spring-security.version>4.2.2.RELEASE</spring-security.version>
+        <spring-data-jpa.version>1.11.1.RELEASE</spring-data-jpa.version>
+        <hibernate.version>5.2.8.Final</hibernate.version>
+        <hibernate-validator.version>5.4.0.Final</hibernate-validator.version>
+        <mybatis.version>3.4.2</mybatis.version>
+        <mybatis-spring.version>1.3.1</mybatis-spring.version>
         <mybaitsplus.version>2.0.2</mybaitsplus.version>
-        <!--<apache-shiro.verion></apache-shiro.verion>-->
         <mysql.version>5.1.40</mysql.version>
         <druid.version>1.0.27</druid.version>
         <shiro.version>1.3.2</shiro.version>
@@ -142,8 +142,89 @@
             <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
-
         <!-- spring end -->
+
+        <!-- security start-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+        <!-- security end-->
+
+        <!-- shiro begin -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>${shiro.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>${ehcache.version}</version>
+        </dependency>
+        <!-- shiro end -->
+
+        <!-- spring data jpa-->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring-data-jpa.version}</version>
+        </dependency>
+
+        <!-- hibernate start-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
+        </dependency>
+        <!-- hibernate end-->
+
+        <!-- mybatis start-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis-spring.version}</version>
+        </dependency>
+
+        <!-- mybatis end-->
 
         <!-- Mybatis-Plus -->
         <dependency>
@@ -168,24 +249,8 @@
             <version>${jackson.version}</version>
         </dependency>
         <!-- jackson end -->
-        <!-- shiro begin -->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-spring</artifactId>
-            <version>${shiro.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>slf4j-api</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache-core</artifactId>
-            <version>${ehcache.version}</version>
-        </dependency>
-        <!-- shiro end -->
+
+
         <!-- 可选配置，spring时间处理增强 -->
         <dependency>
             <groupId>joda-time</groupId>
